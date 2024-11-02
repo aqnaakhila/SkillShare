@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:startIconDrawable="@drawable/ic_search"
+        app:startIconTint="@android:color/darker_gray">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search for skills..."
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:inputType="text"
+            android:imeOptions="actionSearch"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/categoryPills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/searchTextInputLayout"
+        android:layout_marginTop="16dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/allSkillsPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Skills"
+            android:textSize="12sp"
+            android:padding="8dp"
+            android:background="@drawable/pill_background_selector"
+            android:textColor="@color/pill_text_color_selector"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:id="@+id/popularPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popular"
+            android:textSize="12sp"
+            android:padding="8dp"
+            android:background="@drawable/pill_background_selector"
+            android:textColor="@color/pill_text_color_selector"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:id="@+id/nearbyPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nearby"
+            android:textSize="12sp"
+            android:padding="8dp"
+            android:background="@drawable/pill_background_selector"
+            android:textColor="@color/pill_text_color_selector"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/classes_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/categoryPills"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
