@@ -37,8 +37,11 @@ class SearchFragment : Fragment() {
         searchRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Dummy data for classList
-        classList.add(ClassItem("Basic Photography", "John Doe", "Photography"))
-        classList.add(ClassItem("Digital Marketing", "Jane Smith", "Business"))
+        classList.add(ClassItem("Fuzzy Clustering", "admin", "Machine Learning"))
+        classList.add(ClassItem("Basis data fuzzy", "admin", "Machine Learning"))
+        classList.add(ClassItem("Operator Fuzyy", "admin", "Machine Learning"))
+        classList.add(ClassItem("Fuzzy Inference Systems", "admin", "Machine Learning"))
+        classList.add(ClassItem("Pendahuluan", "admin", "Machine Learning"))
 
         adapter = ClassAdapter(classList) { classItem ->
             val intent = Intent(requireContext(), DeskripsiActivity::class.java)

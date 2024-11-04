@@ -27,7 +27,10 @@ class DeskripsiActivity : AppCompatActivity() {
     // HashMap to store URLs for each ClassItem
     private val urlMap = hashMapOf(
         "Fuzzy Clustering" to "https://docs.google.com/presentation/d/1mUX1YOjIoPQeYXBE0QGJs5_ArG6Fc8Q7/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true",
-        "Basis data fuzzy" to "https://docs.google.com/presentation/d/1JZ9OJ_d_yEmtLHZjwgkfPFy12RoEhYwq/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true"
+        "Basis data fuzzy" to "https://docs.google.com/presentation/d/1JZ9OJ_d_yEmtLHZjwgkfPFy12RoEhYwq/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true",
+        "Operator Fuzyy" to "https://docs.google.com/presentation/d/1yoYQZxizRthrZ3U8CcW6yuwreDotDwFo/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true",
+        "Fuzzy Inference Systems" to "https://docs.google.com/presentation/d/1OS7z1ARE0LFwCDwoRRpA81RavzpcpeKk/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true",
+        "Pendahuluan" to "https://docs.google.com/presentation/d/1C5CulquGj1aewaLUjNUovEWcdZDSOV5u/edit?usp=sharing&ouid=113638889799505294942&rtpof=true&sd=true"
         // Add more entries as needed
     )
 
