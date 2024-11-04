@@ -1,5 +1,6 @@
 package com.example.skillsharehub.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,7 +14,10 @@ import com.example.skillsharehub.activity.DeskripsiActivity
 import com.example.skillsharehub.R
 import com.example.skillsharehub.adapters.ClassAdapter
 import com.example.skillsharehub.models.ClassItem
+import com.example.skillsharehub.models.ScheduleModel
 import com.google.android.material.textfield.TextInputEditText
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class HomeFragment : Fragment() {
 
@@ -43,6 +47,7 @@ class HomeFragment : Fragment() {
         adapter = ClassAdapter(classList) { classItem ->
             val intent = Intent(requireContext(), DeskripsiActivity::class.java)
             intent.putExtra("classItem", classItem)
+            addToSchedule(classItem)
             startActivity(intent)
         }
         recyclerView.adapter = adapter
@@ -95,5 +100,30 @@ class HomeFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun addToSchedule(classItem: ClassItem) {
+        val sharedPreferences = requireContext().getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val scheduleListType = object : TypeToken<MutableList<ScheduleModel>>() {}.type
+
+        // Get the current schedule list from SharedPreferences
+        val scheduleListJson = sharedPreferences.getString("scheduleList", "[]")
+        val scheduleList: MutableList<ScheduleModel> = gson.fromJson(scheduleListJson, scheduleListType)
+
+        // Add the new schedule item
+        val newScheduleItem = ScheduleModel(classItem.name, classItem.instructor, "2023-10-15 10:00 AM") // You can set the time dynamically
+        scheduleList.add(newScheduleItem)
+
+        // Save the updated schedule list back to SharedPreferences
+        val updatedScheduleListJson = gson.toJson(scheduleList)
+        sharedPreferences.edit().putString("scheduleList", updatedScheduleListJson).apply()
+
+        // Notify the user that the item has been added
+        requireContext().toast("Added to schedule")
+    }
+
+    private fun Context.toast(message: String) {
+        android.widget.Toast.makeText(this, message, android.widget.Toast.LENGTH_SHORT).show()
     }
 }
